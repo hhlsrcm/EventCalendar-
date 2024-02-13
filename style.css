@@ -10,13 +10,41 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(#e66465, #9198e5);
 }
-header{
+.wrapper{
+    width: 450px;
+    background-color: white;
+    border-radius: 10px;
+    border: dimgrey solid;
+}
+.wrapper header{
     display: flex;
+    align-items: center;
+    padding: 25px 30px 10px;
     justify-content: space-between;
+}
+header .current-date{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+header .arrows i{
+    height: 38px;
+    width: 38px;
+    margin: 0 1px;
+    background-color: #f2f2f2;
+    text-align: center;
+    cursor: pointer;
+    line-height: 38px;
+    border-radius: 50%;
 }
 .calendar ul{
     display: flex;
     list-style: none;
     flex-wrap: wrap;
+    text-align: center;
+}
+.calendar ul li{
+    width: calc(100%/7);
 }
