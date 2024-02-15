@@ -57,6 +57,12 @@ header .arrows i{
     cursor: pointer;
     margin-top: 30px;
 }
+.days li.inactive{
+    color: #aaa;
+}
+.days li.active{
+    color:#fff;
+}
 .calendar .days li::before{
     z-index: -1;
     position: absolute;
@@ -70,4 +76,10 @@ header .arrows i{
 }
 .days li:hover:before{
     background: #f2f2f2;
+}
+.inactive:hover::before{
+    background: #f2f2f2;
+}
+.days li.active::before{
+    background: #b284b3;
 }
