@@ -22,7 +22,7 @@ body {
 .wrapper header{
     display: flex;
     align-items: center;
-    padding: 25px 30px 10px;
+    padding: 25px 20px 10px;
     justify-content: space-between;
 }
 header .current-date{
@@ -39,6 +39,9 @@ header .arrows i{
     line-height: 38px;
     border-radius: 50%;
 }
+.calendar{
+    padding: 20px 10px;
+}
 .calendar ul{
     display: flex;
     list-style: none;
@@ -46,5 +49,25 @@ header .arrows i{
     text-align: center;
 }
 .calendar ul li{
+    position: relative;
     width: calc(100%/7);
+}
+.calendar .days li{
+    z-index: 1;
+    cursor: pointer;
+    margin-top: 30px;
+}
+.calendar .days li::before{
+    z-index: -1;
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 30px;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+.days li:hover:before{
+    background: #f2f2f2;
 }
