@@ -2,7 +2,8 @@ const currentDate = document.querySelector('.current-date');
 const days = document.querySelector('.days');
 const icons = document.querySelectorAll('.arrows i');
 const clickedDay = document.querySelector('.clicked-date');
-
+const addEventBtn = document.querySelector('.add-event-btn')
+const form = document.querySelector('.event-form')
 
 let date = new Date();
 let currYear = date.getFullYear();
@@ -52,3 +53,26 @@ icons.forEach(icon =>{
 })
 renderCalendar();
 
+let isFormVisible = false;
+addEventBtn.addEventListener('click', ()=>{
+
+    if (isFormVisible){
+        form.style.display = 'none';
+    }else {
+        form.style.display = 'block'
+    }
+    isFormVisible = !isFormVisible;
+})
+const newEvent = document.querySelector('.event-name');
+const eventList = document.querySelector('.events');
+
+document.querySelector('.event-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const newTask = newEvent.value;
+    if (newTask) {
+        const listItem = document.createElement('li');
+        listItem.textContent = newTask;
+        eventList.appendChild(listItem);
+        newEvent.value = '';
+    }
+});

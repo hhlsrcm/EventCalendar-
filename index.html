@@ -38,19 +38,18 @@
                 <p class="clicked-date"></p>
             </header>
             <div class="event-wrapper">
-            <div class="event-list">
-                <ol class="events"></ol>
+                <div class="event-list">
+                    <ol class="events">
+                    </ol>
+                </div>
+                <div class="event-form">
+                    <form>
+                        <input type="text" name="event-name" class="event-name" placeholder="event name">
+                        <button type="submit" class="submit-event-btn">submit</button>
+                    </form>
+                </div>
+                    <button class="add-event-btn">Add</button>
             </div>
-            <div class="event-form">
-                <form>
-                    <input type="text" name="event-name" class="event-name" placeholder="event name">
-                    <textarea name="event-description" class="event-description" placeholder="description"></textarea>
-                    <button type="submit" class="submit-event-btn">submit</button>
-                </form>
-            </div>
-            <i class='bx bx-calendar-plus'></i>
-            </div>
-        </div>
     </div>
     <script src="script.js"></script>
 </body>

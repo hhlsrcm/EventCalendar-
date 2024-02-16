@@ -32,6 +32,7 @@ body {
     background-color: #fff;
     border-radius: 10px;
     margin: 10px 10px;
+    position: relative;
 }
 .things{
     padding: 25px 20px 10px;
@@ -117,4 +118,44 @@ header .arrows i{
 }
 .days li.active::before{
     background: #b284b3;
+}
+.event-wrapper{
+    padding: 25px 15px;
+}
+.event-wrapper .event-list{
+    margin-left: 10px;
+    text-align: left;
+}
+.event-wrapper .add-event-btn {
+    height: 38px;
+    width: 38px;
+    display:block;
+    border-radius: 5px;
+    border: none;
+    background: #b284b3;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 25px 15px;
+}
+.event-form{
+    display: none;
+    text-align: center;
+}
+.event-form .event-name{
+    width: 100%;
+    border-radius: 5px;
+    padding-block: 2px;
+    padding-inline: 3px;
+}
+.event-form .submit-event-btn{
+    border-radius: 5px;
+    border: none;
+    background: #b284b3;
+    color: #fff;
+    margin-top: 4px;
+    height: 28px;
+    width: 50px;
+    position: relative;
 }
