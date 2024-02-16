@@ -1,6 +1,8 @@
 const currentDate = document.querySelector('.current-date');
 const days = document.querySelector('.days');
 const icons = document.querySelectorAll('.arrows i');
+const clickedDay = document.querySelector('.clicked-date');
+
 
 let date = new Date();
 let currYear = date.getFullYear();
@@ -10,7 +12,7 @@ let currMonth = date.getMonth();
 const months = ["January", "February", "March", "April", "May", "June", "July",
     "August", "September", "October", "November", "December"];
 
-
+clickedDay.innerHTML = `${date.getDate()} ${months[currMonth]} ${currYear}`;
 
 const renderCalendar = function () {
 
@@ -32,6 +34,10 @@ const renderCalendar = function () {
     }
     days.innerHTML = liDays;
     currentDate.innerHTML = `${months[currMonth]} ${currYear}`;
+    days.childNodes.forEach(day => day.addEventListener('click', (event) =>
+    {
+        clickedDay.innerHTML = `${event.target.textContent} ${months[currMonth]} ${currYear}`;
+    }))
 }
 icons.forEach(icon =>{
     icon.addEventListener('click', () => {
@@ -40,10 +46,9 @@ icons.forEach(icon =>{
             let date = new Date(currYear, currMonth);
             currYear = date.getFullYear();
             currMonth = date.getMonth();
-        }else{
-
         }
         renderCalendar();
     })
 })
 renderCalendar();
+

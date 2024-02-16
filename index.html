@@ -10,27 +10,46 @@
 </head>
 
 <body>
-
-    <div class="wrapper">
-        <header>
-            <p class="current-date"></p>
-            <div class="arrows">
-                <i class='bx bx-left-arrow-alt' ></i>
-                <i class='bx bx-right-arrow-alt'></i>
+    <div class = 'container'>
+        <div class="left">
+            <header>
+                <p class="current-date"></p>
+                <div class="arrows">
+                    <i class='bx bx-left-arrow-alt' ></i>
+                    <i class='bx bx-right-arrow-alt'></i>
+                </div>
+            </header>
+            <div class="calendar">
+                <ul class="weeks">
+                    <li>Sun</li>
+                    <li>Mon</li>
+                    <li>Tue</li>
+                    <li>Wed</li>
+                    <li>Thu</li>
+                    <li>Fri</li>
+                    <li>Sat</li>
+                </ul>
+                <ul class="days">
+                </ul>
             </div>
-        </header>
-        <div class="calendar">
-            <ul class="weeks">
-                <li>Sun</li>
-                <li>Mon</li>
-                <li>Tue</li>
-                <li>Wed</li>
-                <li>Thu</li>
-                <li>Fri</li>
-                <li>Sat</li>
-            </ul>
-            <ul class="days">
-            </ul>
+        </div>
+        <div class="right">
+            <header>
+                <p class="clicked-date"></p>
+            </header>
+            <div class="event-wrapper">
+            <div class="event-list">
+                <ol class="events"></ol>
+            </div>
+            <div class="event-form">
+                <form>
+                    <input type="text" name="event-name" class="event-name" placeholder="event name">
+                    <textarea name="event-description" class="event-description" placeholder="description"></textarea>
+                    <button type="submit" class="submit-event-btn">submit</button>
+                </form>
+            </div>
+            <i class='bx bx-calendar-plus'></i>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

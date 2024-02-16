@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 body {
     display: flex;
@@ -13,13 +13,47 @@ body {
     min-height: 100vh;
     background: linear-gradient(#e66465, #9198e5);
 }
-.wrapper{
-    width: 450px;
-    background-color: white;
+.container {
+    position: relative;
+    display: flex;
+    width: 800px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
     border-radius: 10px;
-    border: dimgrey solid;
 }
-.wrapper header{
+.left{
+    width: 60%;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 10px 10px;
+}
+.right{
+    width: 40%;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 10px 10px;
+}
+.things{
+    padding: 25px 20px 10px;
+}
+header{
+    background: #b284b3;
+    margin: 10px 10px;
+}
+p{
+    color: #fff;
+}
+.right header{
+    display: flex;
+    align-items: center;
+    padding: 25px 20px 10px;
+    justify-content: center;
+}
+header .clicked-date{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.left header{
     display: flex;
     align-items: center;
     padding: 25px 20px 10px;
@@ -55,7 +89,8 @@ header .arrows i{
 .calendar .days li{
     z-index: 1;
     cursor: pointer;
-    margin-top: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 .days li.inactive{
     color: #aaa;
@@ -67,8 +102,8 @@ header .arrows i{
     z-index: -1;
     position: absolute;
     content: "";
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     top: 50%;
     left: 50%;
     border-radius: 50%;
