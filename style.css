@@ -40,6 +40,7 @@ body {
 header{
     background: #b284b3;
     margin: 10px 10px;
+    border-radius: 5px;
 }
 p{
     color: #fff;
@@ -77,11 +78,16 @@ header .arrows i{
 .calendar{
     padding: 20px 10px;
 }
+li{
+    max-width:250px;
+    word-wrap:break-word;
+}
 .calendar ul{
     display: flex;
     list-style: none;
     flex-wrap: wrap;
     text-align: center;
+    text-underline-offset: 5px;
 }
 .calendar ul li{
     position: relative;
@@ -123,7 +129,7 @@ header .arrows i{
     padding: 25px 15px;
 }
 .event-wrapper .event-list{
-    margin-left: 10px;
+    margin-left: 20px;
     text-align: left;
 }
 .event-wrapper .add-event-btn {

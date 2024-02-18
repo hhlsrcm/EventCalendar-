@@ -2,8 +2,9 @@ const currentDate = document.querySelector('.current-date');
 const days = document.querySelector('.days');
 const icons = document.querySelectorAll('.arrows i');
 const clickedDay = document.querySelector('.clicked-date');
-const addEventBtn = document.querySelector('.add-event-btn')
-const form = document.querySelector('.event-form')
+const addEventBtn = document.querySelector('.add-event-btn');
+const form = document.querySelector('.event-form');
+const eventList = document.querySelector('.events');
 
 let date = new Date();
 let currYear = date.getFullYear();
@@ -12,6 +13,8 @@ let currMonth = date.getMonth();
 
 const months = ["January", "February", "March", "April", "May", "June", "July",
     "August", "September", "October", "November", "December"];
+
+const tasks = [];
 
 clickedDay.innerHTML = `${date.getDate()} ${months[currMonth]} ${currYear}`;
 
@@ -35,10 +38,19 @@ const renderCalendar = function () {
     }
     days.innerHTML = liDays;
     currentDate.innerHTML = `${months[currMonth]} ${currYear}`;
+    let selectedDay = null;
     days.childNodes.forEach(day => day.addEventListener('click', (event) =>
     {
-        clickedDay.innerHTML = `${event.target.textContent} ${months[currMonth]} ${currYear}`;
-    }))
+        const clickedDate = `${event.target.textContent} ${months[currMonth]} ${currYear}`;
+        clickedDay.innerHTML = clickedDate;
+        if (selectedDay) {
+            selectedDay.style.textDecoration = 'none';
+        }
+        event.target.style.textDecoration = 'underline solid #b284b3 2px';
+        selectedDay = event.target;
+        const tasksForDate = tasks.filter(task => task.date === clickedDate);
+        renderTasksForDate(tasksForDate);
+    }));
 }
 icons.forEach(icon =>{
     icon.addEventListener('click', () => {
@@ -64,15 +76,27 @@ addEventBtn.addEventListener('click', ()=>{
     isFormVisible = !isFormVisible;
 })
 const newEvent = document.querySelector('.event-name');
-const eventList = document.querySelector('.events');
+
 
 document.querySelector('.event-form').addEventListener('submit', (event) => {
     event.preventDefault();
-    const newTask = newEvent.value;
-    if (newTask) {
-        const listItem = document.createElement('li');
-        listItem.textContent = newTask;
-        eventList.appendChild(listItem);
+    const newTask = {
+        date: clickedDay.textContent,
+        name: newEvent.value
+    };
+    if(newTask.name) {
+        tasks.push(newTask);
         newEvent.value = '';
     }
+    const tasksForDate = tasks.filter(task => task.date === clickedDay.textContent);
+    renderTasksForDate(tasksForDate);
 });
+function renderTasksForDate(tasksForDate) {
+
+    eventList.innerHTML = '';
+    tasksForDate.forEach(task => {
+        const listItem = document.createElement('li');
+        listItem.textContent = task.name;
+        eventList.appendChild(listItem);
+    });
+}
